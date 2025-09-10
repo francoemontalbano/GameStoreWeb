@@ -2,20 +2,26 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace GameStore.Api.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-public class GenresController(GameStoreDbContext db) : ControllerBase
+namespace GameStore.Api.Controllers
 {
-    // GET /api/genres
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
+    // Controlador para gestionar los géneros de videojuegos
+    [ApiController]
+    [Route("api/[controller]")]
+    public class GenresController : ControllerBase
     {
-        var items = await db.Genres
-            .OrderBy(g => g.Name)
-            .ToListAsync();
+        private readonly GameStoreDbContext _db;
+        
+        public GenresController(GameStoreDbContext db) => _db = db;
 
-        return Ok(items);
+        // Obtiene todos los géneros ordenados alfabéticamente
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var genres = await _db.Genres
+                .OrderBy(g => g.Name)
+                .ToListAsync();
+
+            return Ok(genres);
+        }
     }
 }

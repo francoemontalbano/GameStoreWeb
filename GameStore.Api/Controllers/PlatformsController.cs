@@ -2,20 +2,26 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace GameStore.Api.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-public class PlatformsController(GameStoreDbContext db) : ControllerBase
+namespace GameStore.Api.Controllers
 {
-    // GET /api/platforms
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
+    // Controlador para gestionar las plataformas de videojuegos
+    [ApiController]
+    [Route("api/[controller]")]
+    public class PlatformsController : ControllerBase
     {
-        var items = await db.Platforms
-            .OrderBy(p => p.Name)
-            .ToListAsync();
+        private readonly GameStoreDbContext _db;
+        
+        public PlatformsController(GameStoreDbContext db) => _db = db;
 
-        return Ok(items);
+        // Obtiene todas las plataformas ordenadas alfabéticamente
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var platforms = await _db.Platforms
+                .OrderBy(p => p.Name)
+                .ToListAsync();
+
+            return Ok(platforms);
+        }
     }
 }

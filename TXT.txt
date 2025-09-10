@@ -1,0 +1,2 @@
+Email: admin@gamestore.com
+Contraseña: Admin123!
