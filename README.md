@@ -6,7 +6,7 @@ Una aplicación web completa para una tienda de videojuegos desarrollada con .NE
 
 - **Backend API**: Desarrollado con .NET 8 y Entity Framework Core
 - **Frontend**: Aplicación Angular con TypeScript
-- **Base de datos**: SQLite para desarrollo
+- **Base de datos**: SQLServer para desarrollo
 - **Arquitectura**: Clean Architecture con separación de capas
 
 ## 🛠️ Tecnologías Utilizadas
@@ -14,7 +14,7 @@ Una aplicación web completa para una tienda de videojuegos desarrollada con .NE
 ### Backend
 - .NET 8
 - Entity Framework Core
-- SQLite
+- SQLServer
 - Swagger/OpenAPI
 - C#
 
@@ -73,7 +73,7 @@ npm start
 
 ## 🗄️ Base de Datos
 
-La aplicación utiliza SQLite como base de datos para desarrollo. Las migraciones se ejecutan automáticamente al iniciar la aplicación.
+La aplicación utiliza SQLServer como base de datos para desarrollo. Las migraciones se ejecutan automáticamente al iniciar la aplicación.
 
 ## 📄 Licencia
 
